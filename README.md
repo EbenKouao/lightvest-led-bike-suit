@@ -2,7 +2,7 @@
 
 LightVest is an open-source Bike Vest designed to be wearable technology. The product is a Bike Suit designed to increase a cyclist’s visibility, especially during the night. As well as improving the cyclist communication and intent with other motorists and pedestrians.
 
-[Light Vest](img/readme/lightvest-back-left.png)
+![Light Vest](img/readme/lightvest-back-left.png)
 
 ## Features
 
@@ -39,11 +39,11 @@ This repo contains includes:
 
 ### LightVest
 
-[LightVest](Diagrams/LED_bike_vest_bb.png)
+![LightVest](Diagrams/LED_bike_vest_bb.png)
 
 ### Remote
 
-[Remote](Diagrams/LED_bike_remote_bb.png)
+![Remote](Diagrams/LED_bike_remote_bb.png)
 
 ## About this project:
 
