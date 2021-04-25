@@ -1,19 +1,20 @@
-// A basic everyday NeoPixel strip_back test program.
+/*
+   Code: LightVest Remote enabled Vest
+   Modified by Eben - smartbuilds.io
+   Date: 22.02.21
 
-//#Features:
-//
-//Left
-//- Audi Blinker
-//- Static ============
-//Right
-//- Audi Blinker
-//- Static======
-//
-//Hazard
-//- Yellow Light Blinking on Off
-//
-//Rainbow
-//- All Rainbow
+   Description:
+   LightVest to control the indicator lights (test code non-bluetooth). More info: smartbuilds.io
+
+  Features:
+  - Left
+  - Right
+  - Hazard
+  - Rainbow
+
+*/
+
+
 
 // NEOPIXEL BEST PRACTICES for most reliable operation:
 // - Add 1000 uF CAPACITOR between NeoPixel strip_back's + and - connections.
@@ -30,17 +31,15 @@
 #include <avr/power.h> // Required for 16 MHz Adafruit Trinket
 #endif
 
-// Which pin on the Arduino is connected to the NeoPixels?
-// On a Trinket or Gemma we suggest changing this to 1:
 #define LED_BACK    5
 #define LED_LEFT    4
 #define LED_RIGHT   6
 
 // How many NeoPixels are attached to the Arduino?
-#define LED_COUNT 52
+#define LED_COUNT 52 // Define the number of LEDs in the strip
 
 char state = 0; // Changes value from ASCII to char
-int light_delay = 50;
+int light_delay = 50; //How long to keep the LED on for (ms)
 
 
 // Declare our NeoPixel strip_back object:
@@ -97,44 +96,21 @@ void loop() {
   //  delay(300);
 
 
-//  rightBlink();
-//  delay(3000);
-//
-//  leftBlink();
-//  delay(3000);
-//
-//  sixNine();
-//  delay(3000);
-//
-//  hazardBlink();
-//  delay(3000);
+  rightBlink();
+  delay(3000);
+
+  leftBlink();
+  delay(3000);
+
+  sixNine();
+  delay(3000);
+
+  hazardBlink();
+  delay(3000);
 
   //  colorWipeRight(strip_right.Color(255,   100,   0), 50); //Yellow
 
   //  colorWipeLeft(strip_left.Color(255,   100,   0), 50); //Yellow
-
-
-  if (Serial.available() > 0) { // Checks whether data is comming from the serial port
-
-
-    state = Serial.read(); // Reads the data from the serial port
-    Serial.print(state); // Prints out the value sent
-
-    //Left
-    if (state == 'L') {
-      leftBlink();
-      delay(light_delay);
-
-    }
-
-    //Right
-    if (state == 'R') {
-      rightBlink();
-      delay(light_delay);
-
-    }
-
-  }
 
 }
 

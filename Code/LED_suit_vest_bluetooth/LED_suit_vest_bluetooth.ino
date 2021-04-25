@@ -4,10 +4,8 @@
    Date: 22.02.21
   
    Description:
-   A blietooth enabled LightVest to control the indicator lights with the remote. More info: smartbuilds.io
+   A bluetooth enabled LightVest to control the indicator lights with the remote. More info: smartbuilds.io
 */
-
-
 
 // NEOPIXEL BEST PRACTICES for most reliable operation:
 // - Add 1000 uF CAPACITOR between NeoPixel strip_back's + and - connections.
@@ -24,17 +22,15 @@
 #include <avr/power.h> // Required for 16 MHz Adafruit Trinket
 #endif
 
-// Which pin on the Arduino is connected to the NeoPixels?
-// On a Trinket or Gemma we suggest changing this to 1:
 #define LED_BACK    5
 #define LED_LEFT    4
 #define LED_RIGHT   6
 
 // How many NeoPixels are attached to the Arduino?
-#define LED_COUNT 52
+#define LED_COUNT 52 // Define the number of LEDs in the strip
 
 char state = 0; // Changes value from ASCII to char
-int light_delay = 50;
+int light_delay = 50; //How long to keep the LED on for (ms)
 
 
 // Declare our NeoPixel strip_back object:
@@ -114,14 +110,14 @@ void loop() {
     state = Serial.read(); // Reads the data from the serial port
     Serial.print(state); // Prints out the value sent
 
-    //Left
+    //Indicate Left
     if (state == 'L') {
       leftBlink();
       delay(light_delay);
 
     }
 
-    //Right
+    //Indicate Right
     if (state == 'R') {
       rightBlink();
       delay(light_delay);
